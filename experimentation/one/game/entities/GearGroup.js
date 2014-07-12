@@ -75,7 +75,7 @@ VG.GearGroup.prototype.rotateGearAt = function(x, y, dir, rotateNeighbors, force
   }
 
   /** Temporary **/
-  this.finishTurn();
+  // this.finishTurn();
   /** Temporary **/
 };
 
