@@ -1,4 +1,3 @@
-
 /**
  * Extend phaser game with VG (Vault Game).
  */
@@ -14,16 +13,32 @@ VG.GAME_METHODS = {
     vg.load.atlasJSONHash('gears', 'assets/gears.png', 'assets/gears.json');
   },
 
+  create : function() {
+    gearGroup = new VG.GearGroup(vg);
+    gearGroup.x = 200;
+    gearGroup.y = 200;
+
+    testLayout = [
+      [1,2,4],
+      [2,1,4],
+      [3,3,2]
+    ];
+
+    gearGroup.generateLayout(testLayout);
+
+    // gear = vg.add.sprite(200, 200, 'gears', 'gear4.png', gearGroup);
+
+    // rotate = vg.add.tween(gear);
+
+    // rotate.to({rotation: Math.PI}, 2000, Phaser.Easing.Sinusoidal.In);
+  },
+
   update : function() {
 
   },
 
-  create : function() {
-    bot = vg.add.sprite(200, 200, 'gears', 'gear4.png');
-  },
-
   render : function() {
-    vg.debug.body(bot);
+    //vg.debug.body(bot);
   }
 };
 
@@ -33,5 +48,3 @@ VG.GAME_METHODS = {
 VG.startGame = function() {
   vg = new VG(800, 600, Phaser.CANVAS, 'vault-game', VG.GAME_METHODS);
 };
-
-VG.startGame();
