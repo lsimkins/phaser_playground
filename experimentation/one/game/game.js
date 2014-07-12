@@ -19,9 +19,9 @@ VG.GAME_METHODS = {
     gearGroup.y = 200;
 
     testLayout = [
-      [1,2,4],
-      [2,1,4],
-      [3,3,2]
+      [4,2,4],
+      [1,1,1],
+      [3,3,3]
     ];
 
     gearGroup.generateLayout(testLayout);
