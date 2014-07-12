@@ -55,6 +55,11 @@ VG.GearGroup.prototype.generateLayout = function(layout) {
   }
 };
 
+VG.GearGroup.prototype.performTurn = function(x, y, dir) {
+  this.rotateGearAt(x, y, dir);
+  this.finishTurn();
+};
+
 VG.GearGroup.prototype.rotateGearAt = function(x, y, dir, rotateNeighbors, force) {
   rotateNeighbors = (typeof rotateNeighbors === undefined) ? rotateNeighbors : true;
   force           = (typeof force === undefined) ? force : false;
@@ -70,17 +75,13 @@ VG.GearGroup.prototype.rotateGearAt = function(x, y, dir, rotateNeighbors, force
   }
 
   gear.rotate(dir);
-  // gear.rotatedThisTurn = true;
+  gear.rotatedThisTurn = true;
 
   if (rotateNeighbors) {
     for (var i = neighbors.length - 1; i >= 0; i--) {
       this.rotateGearAt(neighbors[i][0], neighbors[i][1], dir * -1);
     }
   }
-
-  /** Temporary **/
-  // this.finishTurn();
-  /** Temporary **/
 };
 
 VG.GearGroup.prototype.getNeighbors = function(x, y) {
