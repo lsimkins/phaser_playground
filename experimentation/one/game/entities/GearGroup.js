@@ -31,7 +31,8 @@ VG.GearGroup.prototype.resetGrid = function() {
 };
 
 VG.GearGroup.prototype.createGearAt = function(x, y, type, variant) {
-  if (!this.grid[x] || typeof this.grid[x][y] !== 'object') {
+  var self = this;
+  if (!self.grid[x] || typeof self.grid[x][y] !== 'object') {
     console.log('Cannot add gear at location, out of bounds.', x, y);
     return;
   }
@@ -40,8 +41,13 @@ VG.GearGroup.prototype.createGearAt = function(x, y, type, variant) {
   variant = variant || 1;
 
   var sprite = 'gear' + type + '-' + variant;
+  var gear = 
 
-  this.grid[x][y] = vg.add.sprite(x * this.tileSize, y * this.tileSize, 'gears', sprite, this);
+  self.grid[x][y] = vg.add.sprite(x * self.tileSize, y * self.tileSize, 'gears', sprite, self);
+  self.grid[x][y].inputEnabled = true;
+  self.grid[x][y].events.onInputDown.add(function() {
+    self.performTurn(x, y, 1);
+  });
 };
 
 VG.GearGroup.prototype.generateLayout = function(layout) {

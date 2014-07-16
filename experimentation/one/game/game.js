@@ -26,6 +26,14 @@ VG.GAME_METHODS = {
 
     gearGroup.generateLayout(testLayout);
 
+    gearGroup.grid[0][0].inputEnabled = true;
+    // gearGroup.input.onTap.addOnce(function() {
+    //   console.log('TAP');
+    // });
+    gearGroup.inputEnabled = true;
+
+console.log(gearGroup.grid[0][0].input);
+
     // gear = vg.add.sprite(200, 200, 'gears', 'gear4.png', gearGroup);
 
     // rotate = vg.add.tween(gear);
