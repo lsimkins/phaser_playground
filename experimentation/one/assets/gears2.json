@@ -1,0 +1,60 @@
+{"frames": {
+
+"gear0":
+{
+	"frame": {"x":228,"y":116,"w":114,"h":116},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":114,"h":116},
+	"sourceSize": {"w":114,"h":116}
+},
+"gear2-1":
+{
+	"frame": {"x":114,"y":116,"w":114,"h":116},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":114,"h":116},
+	"sourceSize": {"w":114,"h":116}
+},
+"gear2-2":
+{
+	"frame": {"x":0,"y":116,"w":114,"h":116},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":114,"h":116},
+	"sourceSize": {"w":114,"h":116}
+},
+"gear3-1":
+{
+	"frame": {"x":228,"y":0,"w":114,"h":116},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":114,"h":116},
+	"sourceSize": {"w":114,"h":116}
+},
+"gear1-1":
+{
+	"frame": {"x":114,"y":0,"w":114,"h":116},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":114,"h":116},
+	"sourceSize": {"w":114,"h":116}
+},
+"gear4-1":
+{
+	"frame": {"x":0,"y":0,"w":114,"h":116},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":114,"h":116},
+	"sourceSize": {"w":114,"h":116}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "gears2.png",
+	"format": "RGBA8888",
+	"size": {"w":342,"h":342},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:ffb6b1bf6fde26053dfdf73a352c02f1:185bf98a3399294864c5a235ad1525bb:507948f22a894ab8053001ea7f43c821$"
+}
+}

@@ -3,7 +3,7 @@ VG.GearGroup = function(game, parent, name, addToStage, enableBody, physicsBodyT
 
   this.classType = VG.Gear;
 
-  this.tileSize = 128;
+  this.tileSize = 114;
   this.gridSize = {x: 3, y: 3};
   // this.anchor.x = this.anchor.y = 0.5;
 

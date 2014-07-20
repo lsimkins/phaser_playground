@@ -10,31 +10,29 @@ VG.prototype.constructor = VG;
 
 VG.GAME_METHODS = {
   preload : function() {
-    vg.load.atlasJSONHash('gears', 'assets/gears.png', 'assets/gears.json');
+    vg.load.atlasJSONHash('gears', 'assets/gears2.png', 'assets/gears2.json');
+    vg.load.atlasJSONHash('vault', 'assets/vault.png', 'assets/vault.json');
   },
 
   create : function() {
+    vg.add.sprite(70, -10, 'vault', 'safe1');
+    fade = vg.add.sprite(200, 150, 'vault', 'fade');
+
     gearGroup = new VG.GearGroup(vg);
-    gearGroup.x = 200;
-    gearGroup.y = 200;
+    gearGroup.x = 280;
+    gearGroup.y = 240;
 
     testLayout = [
       [4,2,4],
-      [1,1,1],
+      [3,3,3],
       [3,3,3]
     ];
 
     gearGroup.generateLayout(testLayout);
+    gearGroup.scale.x = gearGroup.scale.y = 0.68;
 
-    gearGroup.grid[0][0].inputEnabled = true;
-    // gearGroup.input.onTap.addOnce(function() {
-    //   console.log('TAP');
-    // });
-    gearGroup.inputEnabled = true;
+    //gear = vg.add.sprite(200, 200, 'gears', 'gear4.png', gearGroup);
 
-console.log(gearGroup.grid[0][0].input);
-
-    // gear = vg.add.sprite(200, 200, 'gears', 'gear4.png', gearGroup);
 
     // rotate = vg.add.tween(gear);
 
