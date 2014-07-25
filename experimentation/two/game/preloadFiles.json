@@ -1,0 +1,8 @@
+{
+  "atlasJSONHash" : [{
+    "id" : "ships",
+    "url": "assets/ships.png",
+    "json": "assets/ships.json"
+  }]
+}
+
