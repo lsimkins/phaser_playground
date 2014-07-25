@@ -1,0 +1,7 @@
+{
+  "basic" : {
+    "name" : "Basic",
+    "sprite" : "F5S1.png",
+    "mass" : 100
+  }
+}

@@ -37,4 +37,6 @@ Rama.startGame = function(config) {
   }
 
   game.state.start(config.initState);
+
+  Rama.game = game;
 };

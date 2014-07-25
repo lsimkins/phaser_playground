@@ -21,31 +21,63 @@ SpaceRPG.GameRound = function (game) {
 
     //  You can use any of these from any function within this State.
     //  But do consider them as being 'reserved words', i.e. don't create a property for your own game called "world" or you'll over-write the world reference.
-
 };
 
 SpaceRPG.GameRound.prototype = {
 
-  create: function () {
-
-    //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
+  preload: function() {
 
   },
 
+  create: function() {
+    this.add.tileSprite(0, 0, 2000, 2000, 'F5S2.png');
+    this.physics = new SpaceRPG.Physics();
+    this.world.setBounds(0, 0, 1400, 1400);
+
+    player = this.createShip('basic');
+
+    this.camera.follow(player, Phaser.Camera.FOLLOW_TOPDOWN);
+    this.camera.deadzone = Phaser.Rectangle(-150, -150, 150, 150);
+  },
+
   update: function () {
+    if (this.input.mousePointer.isDown) {
+      console.log('setting');
+      var angle = this.physics.angleToPointer(player, this.input.mousePointer);
 
-    //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
+      var rotate = 0;
+      var diff = angle - player.rotation;
 
+      if (Math.abs(diff) >= Math.PI) {
+        diff *= -1;
+      }
+
+      player.body.torque = diff;
+    } else {
+      player.body.torque = 0;
+    }
+  },
+
+  render: function() {
+    // Rama.game.debug.cameraInfo(this.camera, 32, 32);
+    Rama.game.debug.spriteCoords(player, 32, 32);
+    Rama.game.debug.text("Torque: " + player.body.torque, 32, 100);
+    Rama.game.debug.text("Angle: " + Phaser.Point.angle(this.input.mousePointer, player.position), 32, 120);
+    Rama.game.debug.text("VR: " + player.body.vr, 32, 140);
+  },
+
+  createShip: function(hull) {
+    var hullConfig = this.cache.getJSON('hullConfig');
+    var ship = this.add.sprite(260, 260, 'ships', hullConfig[hull].sprite);
+
+    ship.anchor.x = ship.anchor.y = 0.5;
+
+    this.physics.enable(ship);
+
+    return ship;
   },
 
   quitGame: function (pointer) {
 
-    //  Here you should destroy anything you no longer need.
-    //  Stop music, delete sprites, purge caches, free resources, all that good stuff.
-
-    //  Then let's go back to the main menu.
-    this.state.start('MainMenu');
-
   }
-
 };

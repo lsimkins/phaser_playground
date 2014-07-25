@@ -9,11 +9,22 @@ SpaceRPG.Preloader = function (game) {
 SpaceRPG.Preloader.prototype = {
 
   preload: function () {
-    var test = this.cache.getJSON('preloadFiles');
-    var atlas = test.atlasJSONHash;
+    var preloadConfig = this.cache.getJSON('preloadFiles');
+    var atlases = preloadConfig.atlasJSONHash;
+    var json = preloadConfig.json;
+    var scripts = preloadConfig.scripts;
+    var i;
 
-    for (var i = atlas.length - 1; i >= 0; i--) {
-      this.load.atlasJSONHash(atlas[i].id, atlas[i].url, atlas[i].json);
+    for (i = 0; i < atlases.length; i++) {
+      this.load.atlasJSONHash(atlases[i].key, atlases[i].url, atlases[i].json);
+    }
+
+    for (i = 0; i < json.length; i++) {
+      this.load.json(json[i].key, json[i].url);
+    }
+
+    for (i = 0; i < scripts.length; i++) {
+      this.load.script(scripts[i].key, scripts[i].url);
     }
   },
 

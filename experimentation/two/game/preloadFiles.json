@@ -1,8 +1,19 @@
 {
-  "atlasJSONHash" : [{
-    "id" : "ships",
-    "url": "assets/ships.png",
-    "json": "assets/ships.json"
-  }]
+  "atlasJSONHash" : [
+    {
+      "key" : "ships",
+      "url": "assets/ships.png",
+      "json": "assets/ships.json"
+    }
+  ],
+  "json" : [
+    {
+      "key" : "hullConfig",
+      "url" : "game/config/hulls.json"
+    }
+  ],
+  "scripts" : [
+    {"key" : "physics", "url" : "game/physics/physics.js"}
+  ]
 }
 
