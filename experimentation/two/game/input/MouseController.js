@@ -8,31 +8,15 @@ SpaceRPG.GameRound.MouseController.prototype = {
   checkInput: function() {
     if (this.state.input.mousePointer.isDown) {
       var angle = this.state.physics.angleToPointer(player, this.state.input.mousePointer);
+      player.engines.rotateTowards(angle);
+      player.engines.turnOn();
 
-      var rotate = 0;
-      var diff = angle - player.rotation;
-
-      if (Math.abs(diff) >= Math.PI) {
-        diff *= -1;
-      }
-
-      player.body.force = player.thrust;
-      player.body.friction = 0.5;
-      player.body.torque = diff;
-
-      if (Math.abs(player.body.vr)/10 >= Math.abs(diff)) {
-        player.body.torque = 0;
-        player.body.vr = diff;
-      }
-
-      player.engines[0].visible = true;
+      player.engines.visible = true;
 
     } else if (this.state.input.mousePointer.isUp) {
-      player.body.torque = 0;
-      player.body.vr = 0;
-      player.body.force = 0;
-      player.body.friction = 0.9;
-      player.engines[0].visible = false;
+      if (player.engines.isFiring) {
+        player.engines.turnOff();
+      }
     }
  }
 };

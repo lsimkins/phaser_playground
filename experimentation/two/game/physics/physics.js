@@ -75,8 +75,13 @@ SpaceRPG.Physics.Body.prototype = {
 
     this.speed *= 1 - (this.friction * delta);
 
-    if (this.speed < 1) {
-      this.speed = 0;
+    // Apply triple friction to speed "braking"
+    if (this.speed > 0 && this.force <= 0 && this.speed < 30) {
+      this.speed *= 1 - (this.friction * delta * 2);
+
+      if (this.speed < 1) {
+        this.speed = 0;
+      }
     }
   },
 

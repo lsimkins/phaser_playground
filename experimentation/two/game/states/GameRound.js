@@ -49,9 +49,10 @@ SpaceRPG.GameRound.prototype = {
   render: function() {
     // Rama.game.debug.cameraInfo(this.camera, 32, 32);
     Rama.game.debug.spriteCoords(player, 32, 32);
-    Rama.game.debug.text("Torque: " + player.body.torque, 32, 100);
-    Rama.game.debug.text("Angle: " + Phaser.Point.angle(this.input.mousePointer, player.position), 32, 120);
-    Rama.game.debug.text("VR: " + player.body.vr, 32, 140);
+    Rama.game.debug.text("Speed: " + player.body.speed.toFixed(2), 32, 100);
+    Rama.game.debug.text("Torque: " + player.body.torque.toFixed(2), 32, 120);
+    Rama.game.debug.text("Angle: " + Phaser.Point.angle(this.input.mousePointer, player.position).toFixed(2), 32, 140);
+    Rama.game.debug.text("VR: " + player.body.vr.toFixed(2), 32, 160);
 
     // Rama.game.debug.spriteBounds(player);
     // Rama.game.debug.spriteBounds(player.hull);
