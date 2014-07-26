@@ -23,7 +23,7 @@
   ],
   "script" : [
     {"key" : "physics", "url" : "game/physics/physics.js"},
-    {"key" : "ship", "url" : "game/entities/Ship.js"}
+    {"key" : "ship", "url" : "game/entities/Ship.js"},
+    {"key" : "mouseController", "url" : "game/input/MouseController.js"}
   ]
 }
-

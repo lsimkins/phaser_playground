@@ -2,6 +2,9 @@
   "basic" : {
     "name" : "Basic",
     "sprite" : "F5S1.png",
-    "mass" : 100
+    "mass" : 100,
+    "engines" : [
+      [-120, 0]
+    ]
   }
 }

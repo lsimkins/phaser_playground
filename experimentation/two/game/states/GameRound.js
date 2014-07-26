@@ -36,33 +36,14 @@ SpaceRPG.GameRound.prototype = {
 
     player = this.add.ship(0, 0, 'basic');
     this.physics.enable(player);
+    this.controller = new SpaceRPG.GameRound.MouseController(this.game, this, player);
 
     this.camera.follow(player, Phaser.Camera.FOLLOW_TOPDOWN);
     this.camera.deadzone = Phaser.Rectangle(-150, -150, 150, 150);
   },
 
   update: function () {
-    if (this.input.mousePointer.isDown) {
-      var angle = this.physics.angleToPointer(player, this.input.mousePointer);
-
-      var rotate = 0;
-      var diff = angle - player.rotation;
-
-      if (Math.abs(diff) >= Math.PI) {
-        diff *= -1;
-      }
-
-      player.body.torque = diff;
-
-      if (Math.abs(player.body.vr)/10 >= Math.abs(diff)) {
-        player.body.torque = 0;
-        player.body.vr = diff;
-      }
-
-    } else if (this.input.mousePointer.isUp) {
-      player.body.torque = 0;
-      player.body.vr = 0;
-    }
+    this.controller.checkInput();
   },
 
   render: function() {

@@ -34,13 +34,14 @@ SpaceRPG.Physics.prototype.constructor = SpaceRPG.Physics;
 SpaceRPG.Physics.Body = function(object) {
   this.mass   = 1;
   this.force  = 0;
+  this.friction = 0.5;
   this.speed  = 20;
+  this.maxSpeed = 200;
 
    // Angular velocity
   this.vr     = 0;
-  this.vrMax  = 5;
+  this.vrMax  = 3;
   this.torque = 0;
-  this.rFriction = 0.99;
 
   this.vector = new Phaser.Point(1, 1);
   this.object = object;
@@ -63,11 +64,20 @@ SpaceRPG.Physics.Body.prototype = {
       this.object.rotation += Math.PI * 2;
     }
 
+    this.speed += this.force/this.mass;
+    this.speed = Math.min(this.speed, this.maxSpeed);
+
     // Update vector.
     this.vector.rotate(0, 0, this.object.rotation);
 
     this.object.position.x += this.speed * this.vector.x * delta;
     this.object.position.y += this.speed * this.vector.y * delta;
+
+    this.speed *= 1 - (this.friction * delta);
+
+    if (this.speed < 1) {
+      this.speed = 0;
+    }
   },
 
   postUpdate: function() {}
