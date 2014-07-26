@@ -1,4 +1,4 @@
-var SpaceRPG = {};
+SpaceRPG = {};
 
 SpaceRPG.Boot = function (game) {
 

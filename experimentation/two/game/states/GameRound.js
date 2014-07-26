@@ -34,7 +34,8 @@ SpaceRPG.GameRound.prototype = {
     this.physics = new SpaceRPG.Physics();
     this.world.setBounds(0, 0, 1400, 1400);
 
-    player = this.createShip('basic');
+    player = this.add.ship(0, 0, 'basic');
+    this.physics.enable(player);
 
     this.camera.follow(player, Phaser.Camera.FOLLOW_TOPDOWN);
     this.camera.deadzone = Phaser.Rectangle(-150, -150, 150, 150);
@@ -42,7 +43,6 @@ SpaceRPG.GameRound.prototype = {
 
   update: function () {
     if (this.input.mousePointer.isDown) {
-      console.log('setting');
       var angle = this.physics.angleToPointer(player, this.input.mousePointer);
 
       var rotate = 0;
@@ -53,8 +53,15 @@ SpaceRPG.GameRound.prototype = {
       }
 
       player.body.torque = diff;
-    } else {
+
+      if (Math.abs(player.body.vr)/10 >= Math.abs(diff)) {
+        player.body.torque = 0;
+        player.body.vr = diff;
+      }
+
+    } else if (this.input.mousePointer.isUp) {
       player.body.torque = 0;
+      player.body.vr = 0;
     }
   },
 
@@ -64,17 +71,14 @@ SpaceRPG.GameRound.prototype = {
     Rama.game.debug.text("Torque: " + player.body.torque, 32, 100);
     Rama.game.debug.text("Angle: " + Phaser.Point.angle(this.input.mousePointer, player.position), 32, 120);
     Rama.game.debug.text("VR: " + player.body.vr, 32, 140);
+
+    // Rama.game.debug.spriteBounds(player);
+    // Rama.game.debug.spriteBounds(player.hull);
+    // Rama.game.debug.spriteBounds(player.engines);
   },
 
   createShip: function(hull) {
-    var hullConfig = this.cache.getJSON('hullConfig');
-    var ship = this.add.sprite(260, 260, 'ships', hullConfig[hull].sprite);
 
-    ship.anchor.x = ship.anchor.y = 0.5;
-
-    this.physics.enable(ship);
-
-    return ship;
   },
 
   quitGame: function (pointer) {

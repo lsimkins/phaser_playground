@@ -11,8 +11,9 @@ SpaceRPG.Preloader.prototype = {
   preload: function () {
     var preloadConfig = this.cache.getJSON('preloadFiles');
     var atlases = preloadConfig.atlasJSONHash;
-    var json = preloadConfig.json;
-    var scripts = preloadConfig.scripts;
+    var json    = preloadConfig.json;
+    var scripts = preloadConfig.script;
+    var spritesheets = preloadConfig.spritesheet;
     var i;
 
     for (i = 0; i < atlases.length; i++) {
@@ -25,6 +26,18 @@ SpaceRPG.Preloader.prototype = {
 
     for (i = 0; i < scripts.length; i++) {
       this.load.script(scripts[i].key, scripts[i].url);
+    }
+
+    for (i = 0; i < spritesheets.length; i++) {
+      this.load.spritesheet(
+        spritesheets[i].key,
+        spritesheets[i].url,
+        spritesheets[i].frameWidth,
+        spritesheets[i].frameHeight,
+        spritesheets[i].frameMax,
+        spritesheets[i].margin,
+        spritesheets[i].spacing
+      );
     }
   },
 

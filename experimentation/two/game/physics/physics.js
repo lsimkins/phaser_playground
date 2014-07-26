@@ -34,7 +34,7 @@ SpaceRPG.Physics.prototype.constructor = SpaceRPG.Physics;
 SpaceRPG.Physics.Body = function(object) {
   this.mass   = 1;
   this.force  = 0;
-  this.speed  = 50;
+  this.speed  = 20;
 
    // Angular velocity
   this.vr     = 0;
