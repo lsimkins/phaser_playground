@@ -18,12 +18,13 @@
       "url" : "assets/misc/effects/flame_blueish_flame.png",
       "frameWidth" : 128,
       "frameHeight" : 126,
-      "frameMax" : 27
+      "frameMax" : 28
     }
   ],
   "script" : [
     {"key" : "physics", "url" : "game/physics/physics.js"},
     {"key" : "ship", "url" : "game/entities/Ship.js"},
+    {"key" : "engines", "url" : "game/entities/Engines.js"},
     {"key" : "mouseController", "url" : "game/input/MouseController.js"}
   ]
 }

@@ -9,10 +9,10 @@ SpaceRPG.GameRound.MouseController.prototype = {
     if (this.state.input.mousePointer.isDown) {
       var angle = this.state.physics.angleToPointer(player, this.state.input.mousePointer);
       player.engines.rotateTowards(angle);
-      player.engines.turnOn();
 
-      player.engines.visible = true;
-
+      if (!player.engines.isFiring) {
+        player.engines.turnOn();
+      }
     } else if (this.state.input.mousePointer.isUp) {
       if (player.engines.isFiring) {
         player.engines.turnOff();
