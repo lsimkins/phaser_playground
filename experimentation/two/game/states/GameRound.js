@@ -30,7 +30,7 @@ SpaceRPG.GameRound.prototype = {
   },
 
   create: function() {
-    this.add.tileSprite(0, 0, 2000, 2000, 'F5S2.png');
+    this.add.tileSprite(0, 0, 2000, 2000, 'background001');
     this.physics = new SpaceRPG.Physics();
     this.world.setBounds(0, 0, 1400, 1400);
 

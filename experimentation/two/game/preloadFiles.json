@@ -6,12 +6,6 @@
       "json": "assets/ships.json"
     }
   ],
-  "json" : [
-    {
-      "key" : "hullConfig",
-      "url" : "game/config/hulls.json"
-    }
-  ],
   "spritesheet" : [
     {
       "key" : "explosionBlue01",
@@ -19,6 +13,18 @@
       "frameWidth" : 128,
       "frameHeight" : 126,
       "frameMax" : 28
+    }
+  ],
+  "image" : [
+    {
+      "key": "background001",
+      "url": "assets/textures/blue1/0001.jpg"
+    }
+  ],
+  "json" : [
+    {
+      "key" : "hullConfig",
+      "url" : "game/config/hulls.json"
     }
   ],
   "script" : [

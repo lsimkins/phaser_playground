@@ -14,6 +14,7 @@ SpaceRPG.Preloader.prototype = {
     var json    = preloadConfig.json;
     var scripts = preloadConfig.script;
     var spritesheets = preloadConfig.spritesheet;
+    var images = preloadConfig.image;
     var i;
 
     for (i = 0; i < atlases.length; i++) {
@@ -38,6 +39,10 @@ SpaceRPG.Preloader.prototype = {
         spritesheets[i].margin,
         spritesheets[i].spacing
       );
+    }
+
+    for (i = 0; i < images.length; i++) {
+      this.load.image(images[i].key, images[i].url);
     }
   },
 
